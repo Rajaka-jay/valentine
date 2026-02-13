@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Be My Valentine?</title>
+    <title>Wait for it...</title>
     <style>
         body {
             display: flex;
@@ -12,10 +12,11 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
-            background-color: #ffe4e1;
+            background-color: #f0f8ff; /* Alice Blue - soft starting color */
             font-family: 'Arial', sans-serif;
+            transition: background-color 0.5s ease;
             overflow: hidden;
-            touch-action: manipulation; /* Optimizes for mobile taps */
+            touch-action: manipulation;
         }
 
         #question-pnl {
@@ -24,7 +25,7 @@
         }
 
         h1 {
-            color: #d00000;
+            color: #4b0082; /* Deep Indigo */
             font-size: 2rem;
             margin-bottom: 30px;
         }
@@ -49,13 +50,13 @@
         }
 
         #yesBtn {
-            background-color: #ff4d6d;
+            background-color: #6a5acd; /* Slate Blue */
             color: white;
             z-index: 999;
         }
 
         #noBtn {
-            background-color: #808080;
+            background-color: #ff6347; /* Tomato Red */
             color: white;
             position: relative;
             transition: all 0.1s ease;
@@ -65,22 +66,27 @@
             display: none;
         }
 
+        /* Prank Page Styling */
         #celebration {
             text-align: center;
             padding: 20px;
-            animation: fadeIn 1s ease-in;
+            animation: shake 0.5s ease-in-out;
         }
 
         .val-img {
-            width: 80%;
-            max-width: 300px;
-            border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            width: 85%;
+            max-width: 320px;
+            border-radius: 10px;
+            border: 5px solid #333;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            50% { transform: translateX(10px); }
+            75% { transform: translateX(-10px); }
+            100% { transform: translateX(0); }
         }
     </style>
 </head>
@@ -95,9 +101,9 @@
     </div>
 
     <div id="celebration" class="hidden">
-        <h1 style="color: #ff4d6d;">Sorry I have girlfriend 😎</h1>
+        <h1 style="color: #333;">Sorry I have girlfriend 😎</h1>
         <img src="babe.jpeg" alt="Love Image" class="val-img">
-        <p style="font-size: 1.2rem; color: #ff4d60; margin-top: 20px;">What a prevert girl are u 🤨</p>
+        <p style="font-size: 1.5rem; color: #333; font-weight: bold; margin-top: 20px;">What a pervert girl are u 🤨</p>
     </div>
 
     <script>
@@ -106,7 +112,6 @@
             btn.style.position = 'absolute';
             
             const padding = 30;
-            // Constrain to the visible viewport
             const maxX = window.innerWidth - btn.offsetWidth - padding;
             const maxY = window.innerHeight - btn.offsetHeight - padding;
             
@@ -120,7 +125,9 @@
         function celebrate() {
             document.getElementById('question-pnl').classList.add('hidden');
             document.getElementById('celebration').classList.remove('hidden');
-            document.body.style.backgroundColor = "#ffb3c1";
+            
+            // Change background to a "Warning Yellow" to match the prank vibe
+            document.body.style.backgroundColor = "#ffd700"; 
             document.getElementById('noBtn').style.display = 'none';
         }
     </script>
